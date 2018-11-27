@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 
-app.use(bodyParser.json());
+const mainConfig = require('./config/main-config');
+const routeConfig = require('./config/route-config');
+
+mainConfig.init(app);
+
 
 module.exports = app;

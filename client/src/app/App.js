@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
 import './App.css';
-import Landing from './components/Landing';
+import Landing from './pages/Landing';
+import Recipes from './pages/Recipes';
+import SignIn from './pages/SignIn';
 
 class App extends Component {
   state = {
@@ -38,10 +40,13 @@ class App extends Component {
         <nav>
           <Link to='/'>Landing</Link>
           <Link to='/users/sign_in'>Sign In</Link>
+          <Link to='/recipes'>Recipes</Link>
         </nav>
       </header>
         <main>
           <Route exact path="/" component={Landing} />
+          <Route path="/recipes" component={Recipes} />
+          <Route path="/users/sign_in" component={SignIn} />
         </main>
       </div>
     );

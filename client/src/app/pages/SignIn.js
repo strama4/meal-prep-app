@@ -1,25 +1,16 @@
 import React, {Component} from 'react';
+import SignInForm from '../../components/SignInForm';
 
 class SignIn extends Component {
+    submit() {
+        return alert('Something worked')
+    }
+
     render() {
         return (
             <div>
                 <h3>Sign In</h3>
-
-                <div>
-                    <form action="#" method="post">
-                        <div>
-                            <label for="email">Email: </label>
-                            <input type="email" name="email" placeholder="Enter your email"></input>
-                        </div>
-                        <div>
-                            <label for="password">Password: </label>
-                            <input type="password" name="password" placeholder="Enter your password"></input>
-                        </div>
-                            <button type="submit">Sign In</button>
-                    </form>
-                </div>
-
+                <SignInForm />
                 <div>
                     <p>Not registered? <a href="#">Sign up</a> now to start building your meal prep checklist right away!</p>
                 </div>

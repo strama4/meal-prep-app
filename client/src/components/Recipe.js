@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 
+// TODOS:
+// - Add checkJWT to check the JSON Web Token for authentication
+
 class Recipe extends Component {
     render() {
         return (

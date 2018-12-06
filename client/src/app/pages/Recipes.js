@@ -1,48 +1,50 @@
 import React from 'react';
-import Recipe from '../../components/Recipe';
+import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 class Recipes extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             recipes: ''
         }
     }
 
-    componentDidMount() {
-        this.getRecipes();
+    async componentDidMount() {
+        const recipes = (await axios.get('/api/recipes')).data;
+        this.setState({ recipes });
     }
 
-    getRecipes() {
-        fetch('/api/recipes')
-        .then((res) => {
-            res.json()
-            .then((recipes) => {
-                this.setState({ recipes });
-            });
-        });
-    }
-
-    
     render() {
         const recipes = this.state.recipes;
-
         return (
             <div>
-                { 
-                    Object.values(recipes).map((recipe, index) => {
-                        return (
-                           <Recipe key={index}
-                                title={recipe.title} 
-                                ingredients={recipe.ingredients}    
-                            />
-                            
-                        )
-                    })
-                } 
+                {Object.values(recipes).map(function(recipe){ 
+                    return (
+                        <li key={recipe.id}>
+                            <Link to={`/recipes/${recipe.id}`} key={recipe.id}>
+                                <div>{recipe.title}</div>
+                            </Link>  
+                        </li>
+                    )
+                })}
             </div>
-        );
+        )
+            // <div>
+            //     { 
+            //         Object.values(recipes).map((recipe, index) => {
+            //             return (
+            //                <div key={`${index}`}>
+            //                     <Link to={`/recipes/${recipe.id}`}>
+            //                         <h5>{recipe.title}</h5>
+            //                     </Link>
+            //                 </div> 
+            //             );
+            //         })
+            //     } 
+            // </div>
+        
     }
 }
 
-export default Recipes;
+export default Recipes

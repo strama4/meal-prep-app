@@ -1,7 +1,7 @@
 module.exports = {
     init(app) {
-        const recipesRoute = require('../routes/recipes');
+        // const recipesRoute = require('../routes/recipes');
 
-        app.use(recipesRoute);
+        // app.use(recipesRoute);
     }
 }

@@ -19,6 +19,9 @@ class Recipes extends React.Component {
         const recipes = this.state.recipes;
         return (
             <div>
+                <Link to={'/recipes/new'}>
+                    <button>Add recipe</button>
+                </Link>
                 {Object.values(recipes).map(function(recipe){ 
                     return (
                         <li key={recipe.id}>

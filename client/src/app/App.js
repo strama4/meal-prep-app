@@ -4,6 +4,7 @@ import './App.css';
 import Landing from './pages/Landing';
 import Recipes from './pages/Recipes';
 import Recipe from './pages/Recipe';
+import RecipeForm from './pages/RecipeForm';
 import SignIn from './pages/SignIn';
 
 class App extends Component {
@@ -46,9 +47,10 @@ class App extends Component {
       </header>
         <main>
           <Route exact path="/" component={Landing} />
-          <Route path="/recipes" component={Recipes} />
+          <Route exact path="/recipes" component={Recipes} />
           <Route path="/users/sign_in" component={SignIn} />
           <Route path="/recipes/:recipeId" component={Recipe} />
+          <Route path="/recipes/new" component={RecipeForm} />
         </main>
       </div>
     );
